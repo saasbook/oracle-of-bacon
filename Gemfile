@@ -11,6 +11,7 @@ group :test do
   gem 'rspec', '3.3.0'
   gem 'rspec-its'
   gem 'rspec-collection_matchers'
+  gem 'guard-rspec', require: false
 end
 
 
