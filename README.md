@@ -278,7 +278,13 @@ consisting of the string `unknown response type`.
 When you complete the above four steps, all the specs in `describe
 'parsing XML response'` should pass green.
 
-*Helpful hints* for parsing XML and converting node text into arrays: 
+*Helpful hints* for parsing XML and converting node text into arrays (note that not all of methods need to be used and you may find a different solution):
+
+* The `children` method on a `Nokogiri::XML::Node` lets you go 'deeper' into a node and returns all the children nodes of that node (nested nodes). That is, if `node == <link><actor>Carrie
+Fisher</actor></link>`, then `node.children` will equal to another `Node` object, containing `node == <actor>Carrie
+Fisher</actor>`
+
+* `Nokogiri::XML::Node` responds to `name` method, which returns XPath element name and which may help you to filter a larger set of `Node` objects
 
 * The `text` method on a `Nokogiri::XML::Node` returns the actual text
 content of that node.  That is, if `node == <actor>Carrie
